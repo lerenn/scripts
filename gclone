@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Clean up project path
+PROJECT_PATH=${1}
+PROJECT_PATH="${PROJECT_PATH#https://}"
+PROJECT_PATH="${PROJECT_PATH%.git}"
+
+# Get local path
+LOCAL_PATH=${GOPATH}/src/${PROJECT_PATH}
+DIR_PATH=$(dirname ${LOCAL_PATH})
+
+# Create path
+mkdir -p ${DIR_PATH}
+
+# Git clone project
+git clone --recursive ${1} ${LOCAL_PATH}
