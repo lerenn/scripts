@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# PNG
+find . -name "*.png" -exec optipng '{}' \;
+
+# Jpeg
+find . -name "*.jpg" -exec jpegoptim '{}' \;
+find . -name "*.jpeg" -exec jpegoptim '{}' \;
